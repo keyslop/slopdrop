@@ -171,11 +171,13 @@ struct QRScannerView: UIViewControllerRepresentable {
 class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     var onScanned: ((String) -> Void)?
     private var captureSession: AVCaptureSession?
+    private var previewLayer: AVCaptureVideoPreviewLayer?
     private var hasScanned = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .black
+        view.clipsToBounds = true
 
         let session = AVCaptureSession()
         guard let device = AVCaptureDevice.default(for: .video),
@@ -191,14 +193,19 @@ class QRScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsD
         output.metadataObjectTypes = [.qr]
 
         let preview = AVCaptureVideoPreviewLayer(session: session)
-        preview.frame = view.bounds
         preview.videoGravity = .resizeAspectFill
         view.layer.addSublayer(preview)
+        previewLayer = preview
 
         captureSession = session
         DispatchQueue.global(qos: .userInitiated).async {
             session.startRunning()
         }
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        previewLayer?.frame = view.bounds
     }
 
     override func viewDidDisappear(_ animated: Bool) {

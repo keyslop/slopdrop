@@ -27,12 +27,12 @@
 		17F7FFC1E72635255FF6F587 /* PairingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PairingView.swift; sourceTree = "<group>"; };
 		2A4F1E84187B2AD599C25F48 /* RecordButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordButton.swift; sourceTree = "<group>"; };
 		56FF26D9025C1D6333E32852 /* RecordingStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingStore.swift; sourceTree = "<group>"; };
-		7AC9641A89E686569FD6BBCA /* SlopDrop.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = SlopDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AC9641A89E686569FD6BBCA /* SlopDrop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlopDrop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8778F236DA6FE4CE0CB5F3A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		89922059579BFB04BC13BCF4 /* SlopDropApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlopDropApp.swift; sourceTree = "<group>"; };
 		94A67A835AC88C74D5DDB21A /* ServerConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerConfig.swift; sourceTree = "<group>"; };
 		A9CEC9F3666384C93A9E206D /* Uploader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Uploader.swift; sourceTree = "<group>"; };
-		AE741E009DE099CA7B806905 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		AE741E009DE099CA7B806905 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		AF84A9BBD6BC6CE5B014CACA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		B3F59EBA7DD50E697D185668 /* AudioRecorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorder.swift; sourceTree = "<group>"; };
 		D24154A56BD2B817C6F40161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -229,6 +229,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3Q4C4ATJP;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = SlopDrop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -316,6 +317,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = C3Q4C4ATJP;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = SlopDrop/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
