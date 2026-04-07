@@ -1,4 +1,4 @@
-# SlopDrop
+# SlopDrop (by [\]{-slop](https://github.com/keyslop))
 
 Drop your voice slop on your own server.
 
@@ -72,5 +72,3 @@ No transcription. No AI. No sharing. No accounts. No settings.
 ## License
 
 MIT
-
-## SlopDrop by [\]{-Slop](https://github.com/keyslop)
