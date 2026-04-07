@@ -1,0 +1,10 @@
+[project]
+name = "slopdrop-infra"
+version = "0.1.0"
+description = "PyInfra deployment scripts for SlopDrop"
+requires-python = ">=3.11"
+dependencies = [
+    "pyinfra>=3.0",
+    "jinja2",
+    "pyyaml",
+]

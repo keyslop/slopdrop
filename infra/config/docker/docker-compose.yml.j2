@@ -1,0 +1,16 @@
+services:
+  slopdrop:
+    image: node:22-slim
+    working_dir: /app
+    command: ["npx", "tsx", "server/index.ts"]
+    ports:
+      - "127.0.0.1:3847:3847"
+    volumes:
+      - {{ data_dir }}:/data
+      - {{ app_dir }}/server:/app/server
+      - {{ app_dir }}/package.json:/app/package.json
+      - {{ app_dir }}/tsconfig.json:/app/tsconfig.json
+    environment:
+      - SLOPDROP_DATA=/data
+      - SLOPDROP_TOKEN=${SLOPDROP_TOKEN}
+    restart: unless-stopped

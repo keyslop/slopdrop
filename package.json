@@ -1,0 +1,28 @@
+{
+  "name": "slopdrop",
+  "version": "0.1.0",
+  "description": "Drop your voice slop on your own server",
+  "type": "module",
+  "scripts": {
+    "start": "node cli/boot.js",
+    "server": "tsx server/index.ts"
+  },
+  "dependencies": {
+    "@clack/prompts": "^0.9",
+    "chalk": "^5",
+    "cli-table3": "^0.6",
+    "express": "^5.2.1",
+    "multer": "^2.1.1",
+    "node-ssh": "^13",
+    "qrcode-terminal": "^0.12"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.1.0",
+    "@types/node": "^22",
+    "@types/qrcode-terminal": "^0.12",
+    "tsx": "^4",
+    "typescript": "^5"
+  },
+  "license": "MIT"
+}

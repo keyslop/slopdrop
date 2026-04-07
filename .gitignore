@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.idea/
+*.js.map
+.env
+.DS_Store
+
+# pyinfra
+infra/.venv/
+infra/uv.lock
+__pycache__/
+*.pyc
+
+# SlopDrop data (local dev)
+.slopdrop/

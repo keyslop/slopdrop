@@ -1,0 +1,14 @@
+services:
+  slopdrop:
+    build: .
+    ports:
+      - "127.0.0.1:3847:3847"
+    volumes:
+      - slopdrop_data:/data
+    environment:
+      - SLOPDROP_DATA=/data
+      - SLOPDROP_TOKEN=${SLOPDROP_TOKEN}
+    restart: unless-stopped
+
+volumes:
+  slopdrop_data:
