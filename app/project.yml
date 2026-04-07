@@ -1,0 +1,31 @@
+name: SlopDrop
+options:
+  bundleIdPrefix: com.keyslop
+  deploymentTarget:
+    iOS: "17.0"
+  xcodeVersion: "16.0"
+
+targets:
+  SlopDrop:
+    type: application
+    platform: iOS
+    sources:
+      - SlopDrop
+    settings:
+      base:
+        INFOPLIST_FILE: SlopDrop/Info.plist
+        PRODUCT_BUNDLE_IDENTIFIER: com.keyslop.slopdrop
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: 1
+        SWIFT_VERSION: "5.10"
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        CODE_SIGN_STYLE: Automatic
+        SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: "NO"
+        IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+        SWIFT_EMIT_LOC_STRINGS: "YES"
+        GENERATE_INFOPLIST_FILE: "NO"
+      configs:
+        Release:
+          SWIFT_OPTIMIZATION_LEVEL: "-O"
+          SWIFT_COMPILATION_MODE: wholemodule
