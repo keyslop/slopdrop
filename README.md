@@ -69,6 +69,12 @@ One screen. One button. That's the whole app.
 No transcription. No AI. No sharing. No accounts. No settings.
 
 
+## The Icon
+
+<img src="icon.png" width="128" />
+
+Credit to [@satansdeer](https://github.com/satansdeer) for the idea. The brief was simple: make the icon so unmistakably AI-generated that even an AI would instantly recognize it was made by AI without a second thought. Three iterations of escalating slop later, we arrived at this masterpiece — a neon cyberpunk droplet floating in a fever dream of grids, orbs, and chromatic chaos. Perfect.
+
 ## License
 
 MIT
