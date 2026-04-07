@@ -45,3 +45,6 @@ Use this skill when the SlopDrop interactive setup wizard fails at any step.
 - `infra/inventories.py` — how host data is loaded
 - `infra/config/nginx/slopdrop.conf.j2` — nginx template
 - `cli/wizard/steps/provision.ts` — how CLI invokes pyinfra
+
+## Fix Policy
+Every server fix must also be a pyinfra fix. If you SSH to debug, update infra/provision.py or infra/deploy.py too. Manual server changes get overwritten on next redeploy. If a user's setup diverges significantly from defaults, suggest they fork the repo.

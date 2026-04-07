@@ -81,6 +81,15 @@ Follow patterns from the existing scripts:
 - Templates in `infra/config/` use Jinja2 with variables from host data
 - `render_template()` in deploy.py renders to temp file → `files.put()` to server
 
+## Deployment Fix Policy
+
+**Every server fix must be a pyinfra fix.** If you SSH to a server to fix something (install a package, edit a config, restart a service), that fix must also go into `infra/provision.py` or `infra/deploy.py`. Manual fixes on a server are temporary — the next redeploy will overwrite them.
+
+- Fix it on the server first (to unblock), then immediately update the pyinfra script
+- If you're an agent helping a user debug: propose the pyinfra change, not just the SSH command
+- If a contributor's setup diverges significantly from the defaults (custom nginx, different OS, non-Docker), suggest they fork the repo and maintain their own infra/ scripts
+- The pyinfra scripts are the source of truth for server state — treat them like code, not notes
+
 ## Development Commands
 
 ```bash
