@@ -1,8 +1,8 @@
 """
 Deploy SlopDrop server to a provisioned VPS.
 
-Renders docker-compose and nginx configs from templates,
-deploys them, and starts the services.
+Syncs server code, renders docker-compose and nginx configs from templates,
+installs deps inside the container, and starts the services.
 """
 
 import os
@@ -14,6 +14,7 @@ from pyinfra import host
 from pyinfra.operations import files, server, systemd
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+REPO_DIR = os.path.dirname(SCRIPT_DIR)  # parent of infra/
 
 _jinja_env = Environment(loader=FileSystemLoader(os.path.join(SCRIPT_DIR, "config")))
 _temp_files: list[str] = []
@@ -48,10 +49,40 @@ def render_template(template_rel_path: str, **extra_vars) -> str:
     return tmp.name
 
 
+app_dir = host.data.get("app_dir", "/opt/slopdrop")
+
+
+# --- Sync server code to VPS ---
+
+files.rsync(
+    name="Sync server code to VPS",
+    src=f"{REPO_DIR}/server/",
+    dest=f"{app_dir}/server/",
+    flags=["-az", "--delete"],
+)
+
+files.put(
+    name="Deploy package.json",
+    src=f"{REPO_DIR}/package.json",
+    dest=f"{app_dir}/package.json",
+)
+
+files.put(
+    name="Deploy package-lock.json",
+    src=f"{REPO_DIR}/package-lock.json",
+    dest=f"{app_dir}/package-lock.json",
+)
+
+files.put(
+    name="Deploy tsconfig.json",
+    src=f"{REPO_DIR}/tsconfig.json",
+    dest=f"{app_dir}/tsconfig.json",
+)
+
+
 # --- Docker Compose ---
 
 compose_src = render_template("docker/docker-compose.yml.j2")
-app_dir = host.data.get("app_dir", "/opt/slopdrop")
 
 files.put(
     name="Deploy docker-compose.yml",
@@ -68,18 +99,21 @@ server.shell(
 )
 
 
+# --- Install deps inside container working dir ---
+
+server.shell(
+    name="Install node dependencies on server (via Docker)",
+    commands=[
+        f"docker run --rm -v {app_dir}:/app -w /app node:22-slim npm ci --omit=dev 2>&1 "
+        f"|| docker run --rm -v {app_dir}:/app -w /app node:22-slim npm install --omit=dev 2>&1",
+    ],
+)
+
+
 # --- Nginx config ---
 
 domain = host.data.get("domain", "")
-
-if domain:
-    # Check if SSL cert exists (certbot may have been run already)
-    # If not, deploy HTTP-only config first for certbot challenge
-    nginx_template = "nginx/slopdrop.conf.j2"
-else:
-    # No domain — just proxy on IP (no SSL)
-    nginx_template = "nginx/slopdrop.conf.j2"
-
+nginx_template = "nginx/slopdrop.conf.j2"
 nginx_src = render_template(nginx_template)
 
 files.put(
@@ -108,14 +142,22 @@ systemd.service(
 )
 
 
-# --- Build and start SlopDrop ---
+# --- Restart SlopDrop container ---
 
 server.shell(
-    name="Pull SlopDrop Docker image and start",
+    name="Restart SlopDrop container",
     commands=[
-        f"cd {app_dir} && docker compose up -d --build 2>&1 || "
-        # If no Dockerfile on server, use the pre-built image approach
-        f"cd {app_dir} && docker compose pull && docker compose up -d",
+        f"cd {app_dir} && docker compose down 2>&1 || true",
+        f"cd {app_dir} && docker compose up -d",
+    ],
+)
+
+# Wait and verify
+server.shell(
+    name="Verify container is running",
+    commands=[
+        "sleep 3",
+        "docker ps --filter name=slopdrop --format '{{.Status}}'",
     ],
 )
 

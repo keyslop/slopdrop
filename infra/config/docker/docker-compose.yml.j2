@@ -7,9 +7,7 @@ services:
       - "127.0.0.1:3847:3847"
     volumes:
       - {{ data_dir }}:/data
-      - {{ app_dir }}/server:/app/server
-      - {{ app_dir }}/package.json:/app/package.json
-      - {{ app_dir }}/tsconfig.json:/app/tsconfig.json
+      - {{ app_dir }}:/app
     environment:
       - SLOPDROP_DATA=/data
       - SLOPDROP_TOKEN=${SLOPDROP_TOKEN}

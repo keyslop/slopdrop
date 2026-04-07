@@ -5,12 +5,16 @@ import { icons, dim, bold, makeTable } from '../ui.js';
 
 export async function stepComplete(p: WizardPrompter, state: WizardState): Promise<void> {
   // Save config
+  const now = new Date().toISOString();
   const config: SlopDropConfig = {
     mode: state.mode,
     endpoint: state.endpoint!,
     token: state.token!,
     server_ip: state.server_ip,
+    ssh_user: state.ssh_user,
     domain: state.domain,
+    provisioned_at: state.mode === 'remote' ? now : undefined,
+    deployed_at: state.mode === 'remote' ? now : undefined,
   };
   saveConfig(config);
 

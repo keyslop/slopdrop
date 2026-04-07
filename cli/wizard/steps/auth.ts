@@ -12,7 +12,7 @@ export async function stepAuth(p: WizardPrompter, state: WizardState): Promise<v
     if (state.domain) {
       state.endpoint = `https://${state.domain}`;
     } else if (state.server_ip) {
-      state.endpoint = `http://${state.server_ip}:3847`;
+      state.endpoint = `http://${state.server_ip}`;
     } else {
       state.endpoint = 'http://localhost:3847';
     }

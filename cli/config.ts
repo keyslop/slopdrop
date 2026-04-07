@@ -9,6 +9,8 @@ export interface SlopDropConfig {
   server_ip?: string;
   ssh_user?: string;
   domain?: string;
+  provisioned_at?: string;
+  deployed_at?: string;
   webhooks?: Array<{ url: string; events: string[] }>;
 }
 
@@ -27,6 +29,13 @@ export function loadConfig(): SlopDropConfig {
 export function saveConfig(config: SlopDropConfig): void {
   fs.mkdirSync(SLOPDROP_DIR, { recursive: true });
   fs.writeFileSync(CONFIG_PATH, JSON.stringify(config, null, 2) + '\n');
+}
+
+export function updateConfig(updates: Partial<SlopDropConfig>): SlopDropConfig {
+  const config = loadConfig();
+  const updated = { ...config, ...updates };
+  saveConfig(updated);
+  return updated;
 }
 
 export function configDir(): string {
