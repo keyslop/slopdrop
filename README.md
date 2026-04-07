@@ -73,4 +73,4 @@ No transcription. No AI. No sharing. No accounts. No settings.
 
 MIT
 
-## A []{-slop](https://github.com/keyslop) project
+## SlopDrop by [\]{-Slop](https://github.com/keyslop)
