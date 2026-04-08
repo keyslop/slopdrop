@@ -20,6 +20,7 @@
 		D1DEB8CBB17B8690BFD4F5C3 /* RecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A4F1E84187B2AD599C25F48 /* RecordButton.swift */; };
 		E6935C10608946D5EA2AC382 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8778F236DA6FE4CE0CB5F3A8 /* Assets.xcassets */; };
 		F0AA8C896564DC1BF4AFAAC3 /* Uploader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CEC9F3666384C93A9E206D /* Uploader.swift */; };
+		LAUNCH01VIEW0BUILDFILE0001 /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = LAUNCH01VIEW0FILEREF00001 /* LaunchView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		D24154A56BD2B817C6F40161 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D8E8C9CB398E9567F0C5696B /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		F1655CB201F5EA16891EDB16 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		LAUNCH01VIEW0FILEREF00001 /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -49,6 +51,7 @@
 				B3F59EBA7DD50E697D185668 /* AudioRecorder.swift */,
 				AF84A9BBD6BC6CE5B014CACA /* ContentView.swift */,
 				D24154A56BD2B817C6F40161 /* Info.plist */,
+				LAUNCH01VIEW0FILEREF00001 /* LaunchView.swift */,
 				17F7FFC1E72635255FF6F587 /* PairingView.swift */,
 				AE741E009DE099CA7B806905 /* PrivacyInfo.xcprivacy */,
 				2A4F1E84187B2AD599C25F48 /* RecordButton.swift */,
@@ -152,6 +155,7 @@
 				1C26372A887F3981BC760CFE /* APIClient.swift in Sources */,
 				5C8600DABCE3C52F1D9B0D2E /* AudioRecorder.swift in Sources */,
 				ACB9B9E57C37EA7681AEB1F6 /* ContentView.swift in Sources */,
+				LAUNCH01VIEW0BUILDFILE0001 /* LaunchView.swift in Sources */,
 				4019088CF7E763575733A7D3 /* PairingView.swift in Sources */,
 				D1DEB8CBB17B8690BFD4F5C3 /* RecordButton.swift in Sources */,
 				295F02F828D2559FB5FD2826 /* RecordingRow.swift in Sources */,
